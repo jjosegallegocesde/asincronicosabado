@@ -1,4 +1,3 @@
-//Datos del usuario
 let datosUsuario={
     usuario:"jjgallego@gmail.com",
     password:"Admin123*"
@@ -27,11 +26,18 @@ function conectarConNetflix(datos){
     
 }
 
-conectarConNetflix(datosUsuario)
-.then(function(respuesta){
-    console.log(respuesta)
+async function procesarPeticion(datosUsuario){
 
-})
-.catch(function(respuesta){
-    console.log(respuesta)
-})
+    try{
+
+        let respuesta= await conectarConNetflix(datosUsuario);
+        console.log(respuesta)
+
+    }catch(error){
+        console.log(error)
+
+    }
+
+}
+
+procesarPeticion(datosUsuario);
